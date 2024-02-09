@@ -1,14 +1,15 @@
-import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import React from 'react';
+import type { HeadFC, PageProps } from 'gatsby';
 
+import ProjectsCarousel from '../components/ProjectsCarousel';
 import '../styles/global.css';
 
 const pageStyles = {
-  color: "#FFA",
-  backgroundColor: "#B44",
+  color: '#FFA',
+  backgroundColor: '#B44',
   padding: 96,
-  height: "100%",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  height: '100%',
+  fontFamily: '-apple-system, Roboto, sans-serif, serif',
 }
 const headingStyles = {
   marginTop: 0,
@@ -16,16 +17,16 @@ const headingStyles = {
   maxWidth: 320,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: '#663399',
 }
 const paragraphStyles = {
   marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
+  color: '#8A6534',
   padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
+  backgroundColor: '#FFF4DB',
+  fontSize: '1.25rem',
   borderRadius: 4,
 }
 const listStyles = {
@@ -43,7 +44,7 @@ const listItemStyles = {
 }
 
 const linkStyle = {
-  color: "#3B8EA5",
+  color: '#3B8EA5',
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
@@ -59,18 +60,18 @@ const descriptionStyle = {
 
 const links = [
   {
-    text: "GitHub",
-    url: "https://github.com/sowiecki",
+    text: 'GitHub',
+    url: 'https://github.com/sowiecki',
     description:
-      "",
-    color: "#E95800",
+      '',
+    color: '#E95800',
   },
   {
-    text: "LinkedIn",
-    url: "https://www.linkedin.com/in/seanowiecki/",
+    text: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/seanowiecki/',
     description:
-      "",
-    color: "#1099A8",
+      '',
+    color: '#1099A8',
   },
 ]
 
@@ -95,6 +96,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </li>
         ))}
       </ul>
+      <ProjectsCarousel />
     </main>
   )
 }
