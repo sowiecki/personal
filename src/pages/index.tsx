@@ -7,6 +7,7 @@ const pageStyles = {
   color: "#FFA",
   backgroundColor: "#B44",
   padding: 96,
+  height: "100%",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 const headingStyles = {
@@ -55,19 +56,6 @@ const descriptionStyle = {
   marginBottom: 0,
   lineHeight: 1.25,
 }
-
-const docLinks = [
-  {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
-  },
-  {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
-]
 
 const links = [
   {

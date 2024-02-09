@@ -44,12 +44,11 @@ jobs:
 
       - run: npm run build
 
-      # Probably not needed for Gatsby
-      # - name: Start server and mirror it with wget
-      #   run: |
-      #         npm start &
-      #         sleep 10 &&
-      #         wget --mirror http://localhost:8080 -P out --no-host-directories --page-requisites --adjust-extension
+      - name: Start server and mirror it with wget
+        run: |
+              npm run serve &
+              sleep 10 &&
+              wget --mirror http://localhost:9000 -P out --no-host-directories --page-requisites --adjust-extension
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
