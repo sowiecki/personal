@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpersonal=self.webpackChunkpersonal||[]).push([[121],{769:function(e,l,n){n.r(l);var a=n(7294),r=n(917);l.default=()=>(0,r.tZ)(a.Fragment,null,"Hello, world!")}}]);
+//# sourceMappingURL=component---src-pages-projects-gtfo-tsx-0ed3561b7fce9b354c21.js.map
