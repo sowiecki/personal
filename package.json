@@ -18,12 +18,18 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.10",
+    "@mui/material": "^5.15.10",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.16",
     "gatsby": "^5.13.2",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-root-component": "^1.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8",
+    "swiper": "^11.0.6"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
