@@ -1,106 +1,101 @@
 import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
 
-import ProjectsCarousel from '../components/ProjectsCarousel';
+// import ProjectsCarousel from '../components/ProjectsCarousel';
+import ProjectList from '../components/ProjectList';
+import GeneralLinks from '../components/GeneralLinks';
+import useBreakpoint from '../components/useBreakpoint';
 import '../styles/global.css';
+// @ts-ignore
+import me from '../images/me.jpg';
 
-const pageStyles = {
-  color: '#FFA',
-  backgroundColor: '#B44',
-  padding: 96,
-  height: '100%',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: '#663399',
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-  backgroundColor: '#F5EE9E',
-  borderRadius: 5,
-  padding: '0px 10px'
-}
+// TODO move to theme
+const primary = '#1A2027';
+const secondary = '#FB5012';
+const tertiary = '#01FDF6';
+const q = '#03FCBA';
 
-const linkStyle = {
-  color: '#3B8EA5',
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+const Cover = styled(Paper)(({ theme }) => ({
+  backgroundColor: primary,
+  ...theme.typography.body2,
+  padding: `${theme.spacing(2)} ${theme.spacing(1.5)}`,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const links = [
-  {
-    text: 'GitHub',
-    url: 'https://github.com/sowiecki',
-    description:
-      '',
-    color: '#E95800',
-  },
-  {
-    text: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/seanowiecki/',
-    description:
-      '',
-    color: '#1099A8',
-  },
-]
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: secondary,
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const IndexPage: React.FC<PageProps> = () => {
+  const breakpoint = useBreakpoint()[0];
+  const margin = {
+    xs: '4px 4px',
+    sm: '4px 4px',
+    md: '10px 100px',
+    lg: '10px 100px',
+    xl: '10px 100px',
+  }[breakpoint];
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Sean Owiecki
-      </h1>
-      <ul style={listStyles}>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter-ts`}
-              >
-                {link.text}
-              </a>
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <ProjectsCarousel />
-    </main>
+    <Box sx={{ flexGrow: 1 }} margin={margin}>
+      <Grid container spacing={2} justifyContent="center">
+        <Grid md={12}>
+          <Cover>
+            <Grid container spacing={2}>
+              <Grid md={2}>
+                <Avatar alt="Sean Owiecki" src={me} sx={{ width: 200, height: 200, boxShadow: `0 0 0 12px ${primary}, 0 0 0 20px ${tertiary}` }} />
+              </Grid>
+              <Grid md={10} textAlign="left">
+                <Typography variant="h3" color={secondary}>
+                  Sean Owiecki
+                </Typography>
+                <Typography variant="h4" color={tertiary}>
+                  Full stack software engineer
+                </Typography>
+              </Grid>
+            </Grid>
+          </Cover>
+        </Grid>
+        <Grid md={12}>
+          <Item>
+            {/* experience */}
+            <Typography variant="subtitle1" color={primary} sx={{ fontWeight: 600 }}>React | TypeScript | GraphQL | Node.js</Typography>
+          </Item>
+        </Grid>
+        <Grid md={3}>
+          <Item>
+            <GeneralLinks />
+          </Item>
+        </Grid>
+        <Grid md={9}>
+          <Item>
+            <ProjectList />
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
   )
-}
+};
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Sean Owiecki</title>
+export const Head: HeadFC = () => (
+  <>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>Sean Owiecki</title>
+  </>
+);

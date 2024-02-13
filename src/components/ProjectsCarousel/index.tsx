@@ -9,10 +9,17 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import './styles.css';
 
 // @ts-ignore
+import gtfo from '../../images/gtfo.gif';
+// @ts-ignore
 import covidfaceshields from '../../images/covidfaceshields2.jpg';
 // @ts-ignore
 import hypercube from '../../images/hypercube.jpg';
+// @ts-ignore
+import strangerLights from '../../images/stranger.gif';
+// @ts-ignore
+import nfcUnlock from '../../images/unlock.gif';
 
+// TODO visually indicate which links open external pages
 const ProjectsCarousel = () => (
   <Swiper
     effect="coverflow"
@@ -28,40 +35,47 @@ const ProjectsCarousel = () => (
     }}
     pagination={true}
     modules={[EffectCoverflow, Pagination]}
-    className="mySwiper"
+    className="projectsSwiper"
   >
     <SwiperSlide onClick={(e) => {
-      e.preventDefault()
+      e.preventDefault();
 
-      navigate('/projects/covid');
+      navigate('/projects/gtfo');
+    }}>
+      Gently Tell Folks Out
+      <img src={gtfo} />
+    </SwiperSlide>
+    <SwiperSlide onClick={(e) => {
+      e.preventDefault();
+
+      navigate('https://www.linkedin.com/in/seanowiecki/overlay/1587855615727/single-media-viewer/?profileId=ACoAABX_yDMByQOsS1EH63IoqTQW40XtjqpbkYE');
     }}>
       Covid Faceshield Donations
       <img src={covidfaceshields} />
     </SwiperSlide>
-    <SwiperSlide>
+    <SwiperSlide onClick={(e) => {
+      e.preventDefault();
+
+      navigate('/projects/hypercube');
+    }}>
       HyperCube 3D Printer
       <img src={hypercube} />
     </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+    <SwiperSlide onClick={(e) => {
+      e.preventDefault();
+
+      navigate('https://github.com/sowiecki/Stranger-Lights');
+    }}>
+      Stranger Lights
+      <img src={strangerLights} />
     </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+    <SwiperSlide onClick={(e) => {
+      e.preventDefault();
+
+      navigate('https://github.com/sowiecki/deadbolt-nfc');
+    }}>
+      NFC Unlock
+      <img src={nfcUnlock} />
     </SwiperSlide>
   </Swiper>
 );
