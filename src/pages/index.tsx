@@ -1,36 +1,20 @@
 import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+import {
+  Paper,
+  Box,
+} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 
-// import ProjectsCarousel from '../components/ProjectsCarousel';
+import Cover from '../components/Cover';
 import ProjectList from '../components/ProjectList';
 import GeneralLinks from '../components/GeneralLinks';
 import useBreakpoint from '../components/useBreakpoint';
-import '../styles/global.css';
-// @ts-ignore
-import me from '../images/me.jpg';
-
-// TODO move to theme
-const primary = '#1A2027';
-const secondary = '#FB5012';
-const tertiary = '#01FDF6';
-const q = '#03FCBA';
-
-const Cover = styled(Paper)(({ theme }) => ({
-  backgroundColor: primary,
-  ...theme.typography.body2,
-  padding: `${theme.spacing(2)} ${theme.spacing(1.5)}`,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: secondary,
+  backgroundColor: 'secondary',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
@@ -40,40 +24,26 @@ const Item = styled(Paper)(({ theme }) => ({
 const IndexPage: React.FC<PageProps> = () => {
   const breakpoint = useBreakpoint()[0];
   const margin = {
-    xs: '4px 4px',
-    sm: '4px 4px',
-    md: '10px 100px',
-    lg: '10px 100px',
-    xl: '10px 100px',
+    xs: '1rem',
+    sm: '1rem',
+    md: '2rem 10rem',
+    lg: '2rem 10rem',
+    xl: '2rem 14rem',
   }[breakpoint];
 
   return (
-    <Box sx={{ flexGrow: 1 }} margin={margin}>
+    <Box sx={{ flexGrow: 1, }} margin={margin}>
       <Grid container spacing={2} justifyContent="center">
         <Grid md={12}>
-          <Cover>
-            <Grid container spacing={2}>
-              <Grid md={2}>
-                <Avatar alt="Sean Owiecki" src={me} sx={{ width: 200, height: 200, boxShadow: `0 0 0 12px ${primary}, 0 0 0 20px ${tertiary}` }} />
-              </Grid>
-              <Grid md={10} textAlign="left">
-                <Typography variant="h3" color={secondary}>
-                  Sean Owiecki
-                </Typography>
-                <Typography variant="h4" color={tertiary}>
-                  Full stack software engineer
-                </Typography>
-              </Grid>
-            </Grid>
-          </Cover>
+          <Cover />
         </Grid>
-        <Grid md={12}>
+        <Grid xs={12} md={12}>
           <Item>
-            {/* experience */}
-            <Typography variant="subtitle1" color={primary} sx={{ fontWeight: 600 }}>React | TypeScript | GraphQL | Node.js</Typography>
+            {/* skills */}
+            <Typography variant="subtitle1" color='primary' sx={{ fontWeight: 600 }}>React | TypeScript | GraphQL | Node.js | Embedded | 3D Printing</Typography>
           </Item>
         </Grid>
-        <Grid md={3}>
+        <Grid xs={12} md={3}>
           <Item>
             <GeneralLinks />
           </Item>
@@ -85,13 +55,33 @@ const IndexPage: React.FC<PageProps> = () => {
         </Grid>
       </Grid>
     </Box>
-  )
+  );
 };
 
-export default IndexPage
+export default IndexPage;
 
 export const Head: HeadFC = () => (
   <>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
