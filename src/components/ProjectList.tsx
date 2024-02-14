@@ -1,3 +1,5 @@
+
+
 import * as React from 'react';
 import { navigate } from 'gatsby';
 import ImageList from '@mui/material/ImageList';
@@ -20,63 +22,6 @@ import strangerLights from '../images/stranger.gif';
 // @ts-ignore
 import nfcUnlock from '../images/unlock.gif';
 
-const itemData = [
-  {
-    img: gtfo,
-    title: 'Gently Tell Folks Out',
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-
-      window.open('https://github.com/sowiecki/gtfo');
-    },
-    rows: 2,
-    cols: 2,
-    featured: true,
-    linkIcon: <OpenInNewIcon />,
-  },
-  {
-    img: covidfaceshields,
-    title: 'Covid Face Shields',
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-
-      window.open('https://www.linkedin.com/in/seanowiecki/overlay/1587855615727/single-media-viewer/?profileId=ACoAABX_yDMByQOsS1EH63IoqTQW40XtjqpbkYE');
-    },
-    linkIcon: <OpenInNewIcon />,
-  },
-  {
-    img: hypercube,
-    title: 'HyperCube',
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-
-      navigate('/projects/hypercube');
-    },
-    linkIcon: <InfoIcon />,
-  },
-  {
-    img: nfcUnlock,
-    title: 'NFC-Controlled Deadbolt',
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-
-      window.open('https://github.com/sowiecki/deadbolt-nfc');
-    },
-    linkIcon: <OpenInNewIcon />,
-  },
-  {
-    img: strangerLights,
-    title: 'Stranger Lights',
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-
-      window.open('https://github.com/sowiecki/Stranger-Lights');
-    },
-    cols: 2,
-    linkIcon: <OpenInNewIcon />,
-  },
-];
-
 const ProjectList = () => {
   const breakpoint = useBreakpoint()[0];
   const cols = {
@@ -86,6 +31,69 @@ const ProjectList = () => {
     lg: 3,
     xl: 5,
   }[breakpoint];
+
+  const openInNewTab = (link: string) => {
+    if (typeof window !== 'undefined') {
+      window.open(link);
+    }
+  };
+
+  const itemData = [
+    {
+      img: gtfo,
+      title: 'Gently Tell Folks Out',
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        openInNewTab('https://github.com/sowiecki/gtfo');
+      },
+      rows: 2,
+      cols: 2,
+      featured: true,
+      linkIcon: <OpenInNewIcon />,
+    },
+    {
+      img: covidfaceshields,
+      title: 'Covid Face Shields',
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        openInNewTab('https://www.linkedin.com/in/seanowiecki/overlay/1587855615727/single-media-viewer/?profileId=ACoAABX_yDMByQOsS1EH63IoqTQW40XtjqpbkYE');
+      },
+      linkIcon: <OpenInNewIcon />,
+    },
+    {
+      img: hypercube,
+      title: 'HyperCube',
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        navigate('/projects/hypercube');
+      },
+      linkIcon: <InfoIcon />,
+    },
+    {
+      img: nfcUnlock,
+      title: 'NFC-Controlled Deadbolt',
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        openInNewTab('https://github.com/sowiecki/deadbolt-nfc');
+      },
+      linkIcon: <OpenInNewIcon />,
+    },
+    {
+      img: strangerLights,
+      title: 'Stranger Lights',
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        openInNewTab('https://github.com/sowiecki/Stranger-Lights');
+      },
+      cols: 2,
+      linkIcon: <OpenInNewIcon />,
+    },
+  ];
 
   return (
     <ImageList cols={cols}>

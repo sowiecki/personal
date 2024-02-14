@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-
+import JavascriptIcon from '@mui/icons-material/Javascript';
 import List from '@mui/material/List';
 
 const StyledButton = styled(Button)(() => ({
@@ -24,6 +24,12 @@ const links = [
     icon: LinkedInIcon,
     url: 'https://www.linkedin.com/in/seanowiecki/',
     ariaLabel: 'LinkedIn link',
+  },
+  {
+    text: 'NPM',
+    icon: JavascriptIcon,
+    url: 'https://www.npmjs.com/~nase',
+    ariaLabel: 'NPMJS link',
   },
 ];
 

@@ -6,8 +6,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-import './styles.css';
-
 // @ts-ignore
 import gtfo from '../../images/gtfo.gif';
 // @ts-ignore
